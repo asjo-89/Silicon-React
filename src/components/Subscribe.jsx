@@ -1,0 +1,22 @@
+import React from 'react'
+
+const Subscribe = () => {
+  return (
+    <section id="subscribe">
+        <div className="container">
+            <div className="head">
+                <img loading="lazy" src="/images/notification.svg" alt="A yellow bell." />
+                <h3>Subscribe to our newsletter</h3>
+                <span className="text-desktop">Subscribe to our newsletter to stay informed about latest updates</span>
+            </div>
+            <form className="form">
+                <i className="letter fa-light fa-envelope" style={{color: "#9397ad"}}></i>
+                <input type="email" className="form-input" name="email" placeholder="Your email" />
+                <button className="btn btn-primary" htmlFor="email">Subscribe</button>
+            </form>
+        </div>
+    </section>
+  )
+}
+
+export default Subscribe
