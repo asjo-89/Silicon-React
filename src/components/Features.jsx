@@ -1,11 +1,20 @@
 import React from 'react'
+import IphoneFeatures from '../images/iphone-features.svg'
+import Card from '../images/card.svg'
+import Payments from '../images/payments.svg'
+import Security from '../images/security.svg'
+import Statistics from '../images/statistics.svg'
+import Support from '../images/support.svg'
+import Cashback from '../images/cashback.svg'
+import Standards from '../images/standards.svg'
+
 
 const Features = () => {
   return (
     <div className="container">
         <div className="images">
-            <img loading="lazy" id="iphone-features" src="/images/iphone-features.svg" alt="Iphone app features" />
-            <img loading="lazy" id="card-features" src="/images/card.svg" alt="Visa creadit card" />
+            <img loading="lazy" id="iphone-features" src={IphoneFeatures} alt="Iphone app features" />
+            <img loading="lazy" id="card-features" src={Card} alt="Visa creadit card" />
         </div>
         <div className="content">
             <div className="header">
@@ -14,7 +23,7 @@ const Features = () => {
             </div>
             <div className="features" id="f1">
                 <span className="icon">
-                    <img loading="lazy" src="/images/payments.svg" alt="Easy payments icon" />
+                    <img loading="lazy" src={Payments} alt="Easy payments icon" />
                 </span>
                 <span>
                     <h3>Easy Payments</h3>
@@ -23,7 +32,7 @@ const Features = () => {
             </div>
             <div className="features" id="f2">
                 <span className="icon">
-                    <img loading="lazy" src="/images/security.svg" alt="Data security icon" />
+                    <img loading="lazy" src={Security} alt="Data security icon" />
                 </span>
                 <span>
                     <h3>Data Security</h3>
@@ -32,7 +41,7 @@ const Features = () => {
             </div>
             <div className="features" id="f3">
                 <span className="icon">
-                    <img loading="lazy" src="/images/statistics.svg" alt="Data statistics icon" />
+                    <img loading="lazy" src={Statistics} alt="Data statistics icon" />
                 </span>
                 <span>
                     <h3>Data statistics</h3>
@@ -41,7 +50,7 @@ const Features = () => {
             </div>
             <div className="features" id="f4">
                 <span className="icon">
-                    <img loading="lazy" src="/images/support.svg" alt="Support 24/7 icon" />
+                    <img loading="lazy" src={Support} alt="Support 24/7 icon" />
                 </span>
                 <span>
                     <h3>Support 24/7</h3>
@@ -50,7 +59,7 @@ const Features = () => {
             </div>
             <div className="features" id="f5">
                 <span className="icon">
-                    <img loading="lazy" src="/images/cashback.svg" alt="Regular cashback icon" />
+                    <img loading="lazy" src={Cashback} alt="Regular cashback icon" />
                 </span>
                 <span>
                     <h3>Regular Cashback</h3>
@@ -59,7 +68,7 @@ const Features = () => {
             </div>
             <div className="features" id="f6">
                 <span className="icon">
-                    <img loading="lazy" src="/images/standards.svg" alt="Top standards icon" />
+                    <img loading="lazy" src={Standards} alt="Top standards icon" />
                 </span>
                 <span>
                     <h3>Top Standards</h3>

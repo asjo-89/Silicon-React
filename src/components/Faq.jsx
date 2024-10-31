@@ -1,4 +1,6 @@
 import React from 'react'
+import Phone from '../images/phone.svg'
+import Message from '../images/message.svg'
 import ArrowPurple from '../images/arrow-purple.svg'
 import ArrowGreen from '../images/arrow-green.svg'
 
@@ -13,7 +15,7 @@ const Faq = () => {
                 </div>
                 <div className="contact-us">
                     <div id="phone">
-                        <img loading="lazy" src="../images/phone.svg" alt="A Telephone icon." />
+                        <img loading="lazy" src={Phone} alt="A Telephone icon." />
                         <span className="small-text">Still have questions?</span>
                         <a href="#" className="contact-link" id="purple">
                             <span>Contact us</span>
@@ -21,7 +23,7 @@ const Faq = () => {
                         </a>
                     </div>
                     <div id="message">
-                        <img loading="lazy" src="../images/message.svg" alt="A message icon." />
+                        <img loading="lazy" src={Message} alt="A message icon." />
                         <span>Still have questions?</span>
                         <a href="#" className="contact-link" id="green">
                             <span>Contact us</span>
