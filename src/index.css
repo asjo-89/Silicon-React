@@ -968,7 +968,7 @@ footer .container {
           list-style: none;
       }
       li {
-          background: url(/images/check-circle.svg);
+          background: url(./images/check-circle.svg);
           background-repeat: no-repeat;
           margin-top: 2rem;
           
@@ -1050,13 +1050,13 @@ footer .container {
       }
       .content-card-1 {
           .star-filled {
-              background-image: url(/images/star-filled.svg);
+              background-image: url(./images/star-filled.svg);
               width: 4rem;
               height: 1rem;
               background-repeat: repeat-x;
           }
           .star-empty {
-              background-image: url(/images/star-empty.svg);
+              background-image: url(./images/star-empty.svg);
               width: 1rem;
               height: 1rem;
           }
@@ -1064,7 +1064,7 @@ footer .container {
       .content-card-2 {
 
           .star-filled {
-              background-image: url(/images/star-filled.svg);
+              background-image: url(./images/star-filled.svg);
               width: 5rem;
               height: 1rem;
               background-repeat: repeat-x;

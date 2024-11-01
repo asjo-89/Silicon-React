@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Hero from './components/Hero'
 import Header from './components/Header'
 import Logos from './components/Logos'
@@ -11,6 +12,7 @@ import Subscribe from './components/Subscribe'
 import Footer from './components/Footer'
 
 function App() {
+
   return (
     <div className="wrapper">
       <section className="hero">

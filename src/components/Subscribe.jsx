@@ -11,8 +11,7 @@ const Subscribe = () => {
                 <span className="text-desktop">Subscribe to our newsletter to stay informed about latest updates</span>
             </div>
             <form className="form">
-                <i className="letter fa-light fa-envelope" style={{color: "#9397ad"}}></i>
-                <input type="email" className="form-input" name="email" placeholder="Your email" />
+            <i className="letter fa-regular fa-envelope"></i>                <input type="email" className="form-input" name="email" placeholder="Your email" />
                 <button className="btn btn-primary" htmlFor="email">Subscribe</button>
             </form>
         </div>

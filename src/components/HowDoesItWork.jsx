@@ -1,4 +1,5 @@
 import React from 'react'
+
 import IphoneCards from '../images/iphone-cards-work-tab.svg'
 import IphoneTransfer from '../images/iphone-transfer-tab-mob.svg'
 import IphoneTransferTab from '../images/iphone-transfer-work-tab.svg'
@@ -8,7 +9,6 @@ import IphoneTransferDesk from '../images/iphone-transfer-work.svg'
 
 const HowDoesItWork = () => {
   return (
-    <section id="app-features">
         <section id="work">
             <div className="container">
                 <h2>How Does It Work?</h2>
@@ -34,7 +34,6 @@ const HowDoesItWork = () => {
                 </div>
             </div>
         </section>
-    </section>
   )
 }
 

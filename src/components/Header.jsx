@@ -23,7 +23,6 @@ const Header = () => {
             </a>
             <button className="btn-mobile-menu" aria-label="Menu">
                 <i id="mob-menu-light" className="fa-solid fa-bars"></i>
-                {/* Kolla om style funkar på nedan: */}
                 <i loading="lazy" id="mob-menu-dark" className="fa-solid fa-bars" style={{color: "#ededed"}}></i>       
             </button>      
         </div>
