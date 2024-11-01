@@ -1,11 +1,12 @@
 import React from 'react'
+import Notification from '../images/notification.svg'
 
 const Subscribe = () => {
   return (
     <section id="subscribe">
         <div className="container">
             <div className="head">
-                <img loading="lazy" src="/images/notification.svg" alt="A yellow bell." />
+                <img loading="lazy" src={Notification} alt="A yellow bell." />
                 <h3>Subscribe to our newsletter</h3>
                 <span className="text-desktop">Subscribe to our newsletter to stay informed about latest updates</span>
             </div>

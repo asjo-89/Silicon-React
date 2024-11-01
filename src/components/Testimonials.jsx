@@ -1,4 +1,6 @@
 import React from 'react'
+import Fannie from '../images/fannie.svg'
+import Albert from '../images/albert.svg'
 
 const Testimonials = () => {
   return (
@@ -19,7 +21,7 @@ const Testimonials = () => {
                     </div>
                     <span>Sit pretium aliquam tempor, orci dolor sed maecenas rutrum sagittis. Laoreet posuere rhoncus, egestas lacus, egestas justo aliquam vel. Nisi vitae lectus hac hendrerit. Montes justo turpis sit amet.</span>
                     <div className="profile">
-                        <img loading="lazy" className="profile-img" src="/images/fannie.svg" alt="Fannie's profile picture." />
+                        <img loading="lazy" className="profile-img" src={Fannie} alt="Fannie's profile picture." />
                         <div className="data">
                             <span className="name">Fannie Summers</span>
                             <span className="job">Designer</span>
@@ -32,7 +34,7 @@ const Testimonials = () => {
                     </div>
                     <span className="text">Nunc senectus leo vel venenatis accumsan vestibulum sollicitudin amet porttitor. Nisl bibendum nulla tincidunt eu enim ornare dictumst sit amet. Dictum pretium dolor tincidunt egestas eget nunc.</span>
                     <div className="profile">
-                        <img loading="lazy" className="profile-img" src="/images/albert.svg" alt="Albert's profile picture." />
+                        <img loading="lazy" className="profile-img" src={Albert} alt="Albert's profile picture." />
                         <div className="data">
                             <span className="name">Fannie Summers</span>
                             <span className="job">Designer</span>

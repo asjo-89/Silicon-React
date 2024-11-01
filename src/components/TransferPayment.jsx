@@ -1,4 +1,10 @@
 import React from 'react'
+import Contacts from '../images/contacts.svg'
+import Card from '../images/card.svg'
+import Dollars from '../images/dollars.svg'
+import SendMoney from '../images/send-money.svg'
+import Payments from '../images/payments.svg'
+import CashBack from '../images/cashback.svg'
 
 const TransferPayment = () => {
   return (
@@ -25,18 +31,18 @@ const TransferPayment = () => {
                 </a>
             </div> 
             <div className="images-col-1">
-                <img loading="lazy" id="contacts" src="/images/contacts.svg" alt="A List of contacts." />
-                <img loading="lazy" id="card-contacts" src="/images/card.svg" alt="A credit card." />
+                <img loading="lazy" id="contacts" src={Contacts} alt="A List of contacts." />
+                <img loading="lazy" id="card-contacts" src={Card} alt="A credit card." />
             </div>
             <div className="images-col-2">
-                <img loading="lazy" id="money" src="/images/dollars.svg" alt="A curve for total money." />
-                <img loading="lazy" id="send-money" src="/images/send-money.svg" alt="A list of contacts to send money to." />
+                <img loading="lazy" id="money" src={Dollars} alt="A curve for total money." />
+                <img loading="lazy" id="send-money" src={SendMoney} alt="A list of contacts to send money to." />
             </div>
             <div className="content-2">
                 <h2>Receive payment from international bank details</h2>
                 <div className="left">
                     <span className="icon icon-transfer">
-                        <img loading="lazy" src="/images/payments.svg" alt="A credit card icon." />
+                        <img loading="lazy" src={Payments} alt="A credit card icon." />
                     </span>
                     <span>Manage your payments online. Mollis congue egestas egestas fermentum fames.</span>
                     <a href="#" className="btn btn-primary">
@@ -46,7 +52,7 @@ const TransferPayment = () => {
                 </div>
                 <div className="right">
                     <span className="icon icon-transfer">
-                        <img loading="lazy" src="/images/cashback.svg" alt="An wallet icon." />
+                        <img loading="lazy" src={CashBack} alt="An wallet icon." />
                     </span>
                     <span>A elementur and imperdiet enim, pretium etiam facilisi aenean quam mauris.</span>
                 </div>
