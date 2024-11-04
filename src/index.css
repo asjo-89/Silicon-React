@@ -45,7 +45,7 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
-.wrapper{
+body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -151,6 +151,7 @@ header .container-nav {
 
   #logo-light {
       background-color: transparent;
+      margin-left: -10px;
 
       img {
           width: 140px;
@@ -300,6 +301,18 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
   position: absolute;
   left: calc(100% - 21px);
   transition: all 0.2s ease;
+}
+
+.breadcrumb-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.breadcrumb {
+    display: flex;
+    gap: 1rem;
+    font-size: 14px;
+    color: var(--color-grey600);
 }
 
 #hero {
@@ -760,13 +773,15 @@ footer .container {
       
       .form .form-input {
           border-radius: .5em 0 0 .5em;
+          max-height: 42px;
       }
       .form .form-input:focus {
           outline: none;
       }
       .form .btn-primary {
           border-radius: 0 .5em .5em 0;
-          max-width: 120px;
+          max-width: 100px;
+          max-height: 42px;
           margin: 0;
       }
       .form .letter {
