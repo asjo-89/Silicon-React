@@ -7,7 +7,6 @@ header .container-nav {
         display: flex;
         align-items: center;
         gap: .5rem;
-        /* padding-left: .6rem; */
     }
     .prev-page {
         color: var(--color-grey900);
