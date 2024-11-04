@@ -21,11 +21,11 @@ const MobileMenu = () => {
 
   return (
     <>
-        <div className="dropdown-container">
             <button className={`btn-mobile-menu ${isActive ? 'menu-active' : ''}`} aria-label="Menu" onClick={handleClick}>
                 <i id="mob-menu-light" className="fa-solid fa-bars"></i>
                 <i loading="lazy" id="mob-menu-dark" className="fa-solid fa-bars" style={{color: "#ededed"}}></i>       
             </button> 
+        <div className="dropdown-container">
             {isOpen && (
                 <div className="dropdown-menu">
                     <Link to="/" onClick={closeDropDown}><p>Home</p></Link>
