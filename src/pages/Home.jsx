@@ -13,7 +13,7 @@ const Home = () => {
 
   
   return (
-    <div className="wrapper">
+    <>
       <Hero />
       <Logos />
       <Features />
@@ -22,7 +22,7 @@ const Home = () => {
       <Testimonials />
       <Faq />
       <Subscribe />
-    </div>
+    </>
   )
 }
 

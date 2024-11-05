@@ -19,20 +19,22 @@
 
 
 /* LIGHT COLORS */
-  --color-grey900: #0B0F19;
-  --color-grey800: #33354D;
-  --color-grey700: #565973;
-  --color-grey600: #9397AD;
-  --color-grey500: #B4B7C9;
-  --color-grey400: #D4D7E5;
-  --color-grey300: #E2E5F1;
-  --color-grey200: #EFF2FC;
-  --color-grey100: #F3F6FF;
-  --color-white: #FFF;
-  --color-form-bg-white: #fff;
-  --color-form-white: #FFF;
-  --color-arrow-white: #FFF;
-  --color-bg-contact: #F3F6FF;
+.light-theme {
+    --color-grey900: #0B0F19;
+    --color-grey800: #33354D;
+    --color-grey700: #565973;
+    --color-grey600: #9397AD;
+    --color-grey500: #B4B7C9;
+    --color-grey400: #D4D7E5;
+    --color-grey300: #E2E5F1;
+    --color-grey200: #EFF2FC;
+    --color-grey100: #F3F6FF;
+    --color-white: #FFF;
+    --color-form-bg-white: #fff;
+    --color-form-white: #FFF;
+    --color-arrow-white: #FFF;
+    --color-bg-contact: #F3F6FF;
+}
 
 }
 .dark-theme {
@@ -62,7 +64,7 @@
   background-color: var(--color-bg-dark);
   transition: all 0.2s ease-in-out;
 
-  img {filter: brightness(90%);}
+  /* img {filter: brightness(90%);}
   #logo-light {display: none;}
   #logo-dark {
     display: flex;
@@ -72,7 +74,6 @@
         height: 44px;
     }
   }
-  .slider {background-color: var(--color-grey900);}
   #hero #appstore-dark {display: flex;}
   #hero #appstore-light {display: none;}
   #hero #gp-dark {display: flex;}
@@ -86,11 +87,10 @@
     background-color: var(--color-form-white); 
     color: var(--color-grey900);
     border: 1px solid var(--color-grey300);
-    }
+    } */
 
 }
 
-/* DARK COLORS lies in the switch section down below. */
 
 * {
   margin: 0;

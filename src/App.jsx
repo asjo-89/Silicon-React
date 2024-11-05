@@ -12,7 +12,7 @@ function App() {
   return (
 
     <BrowserRouter>
-      <div className="wrapper">
+      <div className="wrapper light-theme">
         <Header /> 
             <Routes>
               <Route path="/" element={<Home />}>Home</Route>
