@@ -29,6 +29,7 @@
     --color-grey300: #E2E5F1;
     --color-grey200: #EFF2FC;
     --color-grey100: #F3F6FF;
+    --color-btn-circle: #F3F6FF;
     --color-white: #FFF;
     --color-form-bg-white: #fff;
     --color-form-white: #FFF;
@@ -48,6 +49,7 @@
   --color-grey300: #565973;
   --color-grey200: #33354D;
   --color-grey100: #0a0c11;
+  --color-btn-circle: #33354D;
   --color-white: #222433;
   --color-form-bg-white: #222433;
   --color-form-white: #33354D;
@@ -151,7 +153,6 @@ a:hover {
   border-radius: 0.3em;
   transition: all 0.2s ease;
 }
-
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-btn-primary);
@@ -162,6 +163,7 @@ a:hover {
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   box-shadow: inset 0 0 5px var(--color-primary-inset);
+  text-decoration: none;
 }
 .btn-app-download {
   background-color: var(--color-grey900);
@@ -198,7 +200,7 @@ a:hover {
         aspect-ratio: 1;
         border-radius: 50%;
         position: absolute;
-        background: var(--color-white);
+        background-color: var(--color-arrow-white);
         transition: transform .3s ease;
     }
 }
@@ -227,18 +229,7 @@ header .container-nav {
   gap: 2rem;
   position: relative;
 
-  #logo-light {
-      background-color: transparent;
-      margin-left: -10px;
-
-      img {
-          width: 140px;
-          height: 44px;
-      }
-  }
-  #logo-dark {
-      display: none;
-  }
+  
   .navbar {
       display: none;
     }
@@ -252,13 +243,9 @@ header .container-nav {
   .btn-mobile-menu {
       border: none;
       background-color: transparent;
-      font-size: 24px;
-      padding: 0.3em;
+      width: 28px;
+      height: 30px;
       cursor: pointer;
-
-      #mob-menu-dark {
-          display: none;
-      }
   }
   .menu-active {
     background-color: var(--color-bg-contact);
@@ -340,13 +327,13 @@ header .container-nav {
           font-size: 18px;
           margin-bottom: 3rem;
       }
-      #appstore-dark {display: none;}
-      #gp-dark {display: none;}
-
       .buttons-app {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+      }
+      .btn-circle {
+        background-color: var(--color-btn-circle);
       }
       .discover-more {
           max-width: 200px;

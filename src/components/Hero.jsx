@@ -6,7 +6,7 @@ import IphoneFront from '../images/iphone-front.svg'
 import DownloadButtons from './DownloadButtons'
 
 
-const Hero = () => {
+const Hero = ({ isDark }) => {
   return (
     <>
         <section id="hero">
@@ -20,7 +20,7 @@ const Hero = () => {
                     <p>We offer you a new generation of the mobile banking. <br />
                     Save, spend & manage money in your pocket.</p>
                     
-                    <DownloadButtons />
+                    <DownloadButtons isDark={isDark} />
 
                     <a href="#" className="discover-more">
                         <span className="btn btn-circle">
