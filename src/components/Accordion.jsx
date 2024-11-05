@@ -20,6 +20,7 @@ const Accordion = () => {
     //   fetchUserData()
     // }, [])
   
+    const [isActive, setIsActive] = useState('')
 
     const accordionData = {
         title: 'Is any of my personal information stored in the App?',
@@ -27,10 +28,12 @@ const Accordion = () => {
     }
 
     const {title, content} = accordionData;
+    
+
         
     const handleClick = (e) => {
         e.preventDefault();
-        
+        setIsActive(!isActive);
     }
 
 
@@ -55,12 +58,12 @@ const Accordion = () => {
             <div className="content">Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.</div>
          </div> */}
         <div className="list-item">
-            <input type="radio" name="radio" id="radio1" onClick={handleClick}/>
+            <input type="radio" name="radio" id="radio1" onClick={handleClick} />
             <div className="title">
                 <label htmlFor="radio1" className="question">{title}</label>
-                <label htmlFor="radio1" className="btn btn-circle"><i className="fa-solid fa-chevron-down"></i></label>
+                <label htmlFor="radio1" className={`btn btn-circle ${!isActive ? 'btn-open' : ''}`}><i className="fa-solid fa-chevron-down"></i></label>
             </div>
-            <div className="content">{content}</div>
+            <div className={`content ${!isActive ? 'content-open' : ''}`}>{content}</div>
          </div>
 
          {/* Om knapp trycks på ska den delen öppnas.

@@ -524,10 +524,10 @@ header .container-nav {
           cursor: pointer;
           background-color: transparent;
       }
-      .question::after {
+      /* .question::after {
           content: '';
           transform: scale(1.8);
-      }
+      } */
       .content {
           max-height: 0;
           opacity: 0;
@@ -536,7 +536,18 @@ header .container-nav {
           overflow: hidden;
           transition: all .5s ease-out;
       }
-      input[type="radio"]:checked ~ .title .btn-circle {
+      .btn-open {
+        transform: rotate(180deg);
+        background-color: var(--color-primary);
+        color: var(--color-arrow-white);
+      }
+      .content-open {
+        max-height: 500px;
+          opacity: 1;
+          transition: all .5s ease-in;
+      }
+      
+      /* input[type="radio"]:checked ~ .title .btn-circle {
           transform: rotate(180deg);
           background-color: var(--color-primary);
           color: var(--color-arrow-white);
@@ -548,7 +559,7 @@ header .container-nav {
           max-height: 500px;
           opacity: 1;
           transition: all .5s ease-in;
-      }
+      } */
   }
 }   
 
