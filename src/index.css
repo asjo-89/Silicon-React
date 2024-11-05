@@ -521,17 +521,20 @@ header .container-nav {
           padding-left: 1rem;
           padding-right: 1rem;
           overflow: hidden;
-          transition: all .5s ease-out;
+          transition: all .4s ease-out;
+      }
+      .btn-circle {
+        transition: all .3s;
       }
       .btn-open {
-        transform: rotate(180deg);
-        background-color: var(--color-primary);
-        color: var(--color-arrow-white);
-      }
-      .content-open {
+          transform: rotate(180deg);
+          background-color: var(--color-primary);
+          color: var(--color-arrow-white);
+    }
+    .content-open {
         max-height: 500px;
-          opacity: 1;
-          transition: all .5s ease-in;
+        opacity: 1;
+        transition: all .4s ease-in;
       }
       
       /* input[type="radio"]:checked ~ .title .btn-circle {
