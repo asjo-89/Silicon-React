@@ -10,6 +10,8 @@ import Faq from '../components/Faq'
 import Subscribe from '../components/Subscribe'
 
 const Home = () => {
+
+  
   return (
     <div className="wrapper">
       <Hero />
