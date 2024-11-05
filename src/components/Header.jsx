@@ -14,11 +14,11 @@ const Header = () => {
                 <NavLink to="/" className="nav-link" >Features</NavLink>
                 <NavLink to="/contact" className="nav-link" >Contact</NavLink>
             </nav>
-            <div className="btn-toggle-switch">
-                <span className="label">Dark mode</span>
-                <label className="toggle" htmlFor="theme-switch">
-                    <span className="slider" htmlFor="theme-switch"></span>
-                </label>
+            <div name="btn-toggle" className="toggle-group">
+                <label className="label" htmlFor="btn-toggle">Dark Mode</label>
+                <div className="btn-toggle-switch">
+                    <span className="toggle-circle"></span>
+                </div>
             </div>
             <a href="#" className="btn btn-primary" id="signin">
                 <i className="fa-regular fa-user"></i>

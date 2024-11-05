@@ -1,7 +1,16 @@
 import React from 'react'
 import Notification from '../images/notification.svg'
 
+
 const Subscribe = () => {
+
+  const handleSubmit = (input) => {
+    if(input = '') return
+
+    //Skicka till API
+    //Visa ConfirmForm
+
+  }
   return (
     <section id="subscribe">
         <div className="container">

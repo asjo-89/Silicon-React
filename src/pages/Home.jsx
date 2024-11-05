@@ -8,7 +8,6 @@ import TransferPayment from '../components/TransferPayment'
 import Testimonials from '../components/Testimonials'
 import Faq from '../components/Faq'
 import Subscribe from '../components/Subscribe'
-import BreadCrumb from '../components/BreadCrumb'
 
 const Home = () => {
   return (
