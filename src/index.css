@@ -225,12 +225,12 @@ a:hover {
     background: rgb(99,102,241);
     background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);  
 }
-header .container-nav {
+.container-nav {
   display: grid;
   align-items: center;
   justify-content: center;
   grid-template-columns: 1fr auto auto;
-  gap: 2rem;
+  column-gap: 2rem;
   position: relative;
   background-color: transparent;
 
@@ -295,17 +295,6 @@ header .container-nav {
   }
 } 
 
-.breadcrumb-group {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-.breadcrumb {
-    display: flex;
-    gap: 1rem;
-    font-size: 14px;
-    color: var(--color-grey600);
-}
 
 #hero {
   padding-bottom: 2rem;
@@ -626,11 +615,11 @@ footer .container {
   h2 {
       font-size: 34px;
   }
-  .container, header .container-nav {
+  .container, .container-nav {
       max-width: 720px;
   }
-  header .container-nav {
-      gap: 3rem;
+  .container-nav {
+      column-gap: 3rem;
 
       .toggle-group {
         width: 150px;
@@ -803,29 +792,29 @@ footer .container {
   
 
 @media (min-width: 1400px) {
-  .container, header .container-nav {
+  .container, .container-nav {
       max-width: 1320px;
   }
-  header .container-nav {
-      grid-template-columns: auto 1fr auto auto;
+  .container-nav {
+        grid-template-columns: auto 1fr auto auto;
 
-      .navbar {
-          display: flex;
-          gap: 3rem;
-          align-items: center;
-      }
-      .nav-link {
+        .navbar {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        .nav-link {
         color: var(--color-grey800);
         font-weight: 700;
         padding: .1em .4em;
-      }
-      #signin {
-          display: block;
-      }
-      .btn-mobile-menu {
-          display: none;
-      }
-  }
+        }
+        #signin {
+            display: block;
+        }
+        .btn-mobile-menu {
+            display: none;
+        }
+    }
   
   #hero .container {
       grid-template-areas:    "headline images"

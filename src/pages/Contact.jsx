@@ -3,15 +3,21 @@ import React from 'react'
 import HeroContact from '../components/HeroContact'
 import Location from '../components/Location'
 import BreadCrumb from '../components/BreadCrumb'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
-const Contact = () => {
+const Contact = ({ toggleTheme, isDark}) => {
   return (
     <>
-      <div className="wrapper">
-        <BreadCrumb />
+        <div className="contact-wrapper">
+          <div className="contact-container">
+            <Header toggleTheme={toggleTheme} isDark={isDark} /> 
+            <BreadCrumb />
+          </div>
+        </div>
         <HeroContact />
         <Location />
-      </div>
+        <Footer />
     </>
   )
 }
