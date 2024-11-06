@@ -49,19 +49,18 @@ const Home = () => {
   
   return (
     <>
-
       <div className="wrapper">
-          <Header toggleTheme={toggleTheme} isDark={isDark} /> 
-          <Hero isDark={isDark} />
-          <Logos />
-          <Features />
-          <HowDoesItWork />
-          <TransferPayment />
-          <Testimonials />
-          <Faq />
-          <Subscribe />
-          <Footer />
-        </div>
+        <Header toggleTheme={toggleTheme} isDark={isDark} /> 
+        <Hero isDark={isDark} />
+      </div>
+      <Logos />
+      <Features />
+      <HowDoesItWork />
+      <TransferPayment />
+      <Testimonials />
+      <Faq />
+      <Subscribe />
+      <Footer />
     </>
 
   )

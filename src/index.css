@@ -29,7 +29,7 @@
     --color-grey300: #E2E5F1;
     --color-grey200: #EFF2FC;
     --color-grey100: #F3F6FF;
-    --color-btn-circle: #F3F6FF;
+    --color-btn-circle: #FFF;
     --color-white: #FFF;
     --color-form-bg-white: #fff;
     --color-form-white: #FFF;
@@ -221,6 +221,10 @@ a:hover {
   border-radius: 0.5em;
 }
 
+.wrapper {
+    background: rgb(99,102,241);
+    background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);  
+}
 header .container-nav {
   display: grid;
   align-items: center;
@@ -228,6 +232,7 @@ header .container-nav {
   grid-template-columns: 1fr auto auto;
   gap: 2rem;
   position: relative;
+  background-color: transparent;
 
   
   .navbar {
@@ -303,8 +308,6 @@ header .container-nav {
 }
 
 #hero {
-  background: rgb(99,102,241);
-  background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);
   padding-bottom: 2rem;
 
   .container {
@@ -918,6 +921,7 @@ footer .container {
           height: 630px;
           gap: 6rem;
           margin-top: 5rem;
+          margin-bottom: 3rem;
       }
       #iphone-cards-tab, #iphone-transfer-mob, #iphone-transfer-tab {
           display: none;
