@@ -90,7 +90,7 @@
         color: var(--color-grey600);
     }
     #page-location {
-        color: var(--color-primary);
+        color: var(--color-primary-hover);
     }
 }
 .container {

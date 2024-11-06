@@ -5,8 +5,8 @@ const ConfirmForm = () => {
   return (
     <>
       <div className="box">
-        <h3>The request has been successfully sent!</h3>
-        <Link to="/" className="btn btn-primary">Return to homepage</Link>
+        <h3>Thank you for subscribing to our newletter!</h3>
+        <Link to="/" className="btn btn-primary" id="return">Return to homepage</Link>
       </div>
     </>
   )
