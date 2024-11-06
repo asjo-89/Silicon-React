@@ -8,33 +8,42 @@ import Logo5 from '../images/logo5.svg'
 import Logo6 from '../images/logo6.svg'
 
 const Logos = () => {
+
+    const logos = [
+        {
+            id: 1,
+            src: Logo1
+        },
+        {
+            id: 2,
+            src: Logo2
+        },
+        {
+            id: 3,
+            src: Logo3
+        },
+        {
+            id: 4,
+            src: Logo4
+        },
+        {
+            id: 5,
+            src: Logo5
+        },
+        {
+            id: 6,
+            src: Logo6
+        }
+    ]
+
   return (
     <section id="logo-row">
         <div className="container">
-            <div className="logo">
-                <img loading="lazy" src={Logo1} alt="Logoipsum 1" />
-            </div>
-
-            <div className="logo">
-                <img loading="lazy" src={Logo2} alt="Logoipsum 2" />                
-            </div>
-            
-            <div className="logo">
-                <img loading="lazy" id="logo3" src={Logo3} alt="Logoipsum 3" />
-            </div>
-            
-            <div className="logo">
-                <img loading="lazy" src={Logo4} alt="Logoipsum 4" />
-            </div>
-            
-            <div className="logo" id="logo5">
-                <img loading="lazy" src={Logo5} alt="Logoipsum 5" />
-            </div>
-            
-            <div className="logo" id="logo6">
-                <img loading="lazy" src={Logo6} alt="Logoipsum 6" />
-            </div>
-
+            {logos.map((logo, index) => (
+                <div className="logo" id={`logo${logo.id}`}key={index}>
+                    <img loading="lazy" src={logo.src} alt="Logoipsum 1" />
+                </div>
+            ))}
         </div>
     </section>
   )
