@@ -583,19 +583,24 @@ a:hover {
           border: 1px solid var(--color-grey400);
           width: 100%;
           height: 52px;
-          padding: .9em 2.5em;
+          padding: .5em;
           border-radius: .4em;
           background-color: var(--color-form-bg-white);
-          background-image: url(./images/letter.svg);
-          background-repeat: no-repeat;
-          background-position: .8em center;
+          outline: none;
+      }
+      .form-input::placeholder {
+        background-color: var(--color-form-bg-white);
+        background-image: url(./images/letter.svg);
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        padding-left: 1.7em;
       }
       .validate-error {
-        border: 2px solid red;
+        border: 2px solid firebrick;
       }
       .msg-error {
         padding: .3em;
-        color: red;
+        color: firebrick;
         font-size: 13px;
         grid-column: 1;
         grid-row: 3;
@@ -1129,7 +1134,8 @@ footer .container {
           grid-column: 2;
       }
       h2 {
-          font-size: 2.5rem;
+        text-align: left;
+        font-size: 2.5rem;
       }
       .contact {
           height: 100%;
