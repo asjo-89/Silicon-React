@@ -66,31 +66,6 @@
   background-color: var(--color-bg-dark);
   transition: all 0.2s ease-in-out;
 
-  /* img {filter: brightness(90%);}
-  #logo-light {display: none;}
-  #logo-dark {
-    display: flex;
-
-    img {
-        width: 140px;
-        height: 44px;
-    }
-  }
-  #hero #appstore-dark {display: flex;}
-  #hero #appstore-light {display: none;}
-  #hero #gp-dark {display: flex;}
-  #hero #gp-light {display: none;}
-  #mob-menu-light {display: none;}
-  #mob-menu-dark {display: block;}
-  .btn-circle {background-color: var(--color-white);}
-  #clients .btn-quotation {box-shadow: none;}
-  #faq .list-item {box-shadow: none;}
-  #subscribe .form-input, #hero-contact .form-input {
-    background-color: var(--color-form-white); 
-    color: var(--color-grey900);
-    border: 1px solid var(--color-grey300);
-    } */
-
 }
 
 
@@ -132,6 +107,9 @@ h3 {
   font-weight: 800;
   padding: 1rem;
   margin-top: 3rem;
+}
+p {
+  line-height: 1.4em;
 }
 
 
@@ -225,6 +203,7 @@ a:hover {
     background: rgb(99,102,241);
     background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);  
 }
+
 .container-nav {
   display: grid;
   align-items: center;
@@ -274,27 +253,14 @@ a:hover {
 
     & a {
         color: var(--color-grey800);
-        text-decoration: none;
         width: 100%;
         height: 100%;
         text-align: center;
         padding: .5rem;
         font-weight: 600;
-
-        p {
-
-            transition: all .3s;
-        }
-    }
-    & a:hover {
-        p {
-            transition: all .3s;
-            text-shadow: 0 0 10px var(--color-primary);
-        }
     }
   }
 } 
-
 
 #hero {
   padding-bottom: 2rem;
@@ -393,6 +359,7 @@ a:hover {
           padding-left: 0;
           padding-top: 0;
           grid-area: h3;
+          text-align: left;
       }
       .icon {        
           grid-area: card;
@@ -477,7 +444,7 @@ a:hover {
           align-items: space-between;
           justify-content: center;
           background-color: var(--color-white);
-          box-shadow: 1px 4px 4px var(--color-grey300);
+          box-shadow: 1px 4px 8px var(--color-grey300);
           border-radius: .5em;
       }
       .title {
@@ -503,10 +470,6 @@ a:hover {
           cursor: pointer;
           background-color: transparent;
       }
-      /* .question::after {
-          content: '';
-          transform: scale(1.8);
-      } */
       .content {
           max-height: 0;
           opacity: 0;
@@ -514,6 +477,7 @@ a:hover {
           padding-right: 1rem;
           overflow: hidden;
           transition: all .4s ease-out;
+          line-height: 1.4em;
       }
       .btn-circle {
         transition: all .3s;
@@ -528,20 +492,6 @@ a:hover {
         opacity: 1;
         transition: all .4s ease-in;
       }
-      
-      /* input[type="radio"]:checked ~ .title .btn-circle {
-          transform: rotate(180deg);
-          background-color: var(--color-primary);
-          color: var(--color-arrow-white);
-      }
-      input[type="radio"]:checked + .question::after {
-          content: '';
-      }
-      input[type="radio"]:checked ~ .content {
-          max-height: 500px;
-          opacity: 1;
-          transition: all .5s ease-in;
-      } */
   }
 }   
 
@@ -565,6 +515,7 @@ a:hover {
   h3 {
       padding: 0;
       margin: 0;
+      text-align: left;
   }
   .form {
       width: 100%;
@@ -580,13 +531,17 @@ a:hover {
           margin-top: 1rem;
       }
       .form-input {
-          border: 1px solid var(--color-grey400);
+          border: 1px solid var(--color-grey800);
           width: 100%;
           height: 52px;
           padding: .5em;
           border-radius: .4em;
           background-color: var(--color-form-bg-white);
           outline: none;
+          color: var(--color-grey900);
+      }
+      .form-input:focus {
+        box-shadow: inset 0 0 3px var(--color-grey800);
       }
       .form-input::placeholder {
         background-color: var(--color-form-bg-white);
@@ -879,15 +834,6 @@ footer .container {
       margin-top: 4rem;
       margin-bottom: 4rem;
 
-      .header h2 {
-          font-size: 40px;
-          text-align: left;
-          padding-left: 0;
-      }
-      p {
-          text-align: left;
-      }
-
       .images {
           display: grid;
           position: relative;
@@ -959,7 +905,8 @@ footer .container {
           display: grid;
           grid-template-columns: repeat(6, 1fr);
           grid-template-rows: repeat(5, 1fr);
-          position: relative;            
+          position: relative;         
+          margin-top: 2rem;   
       }
       #contacts {
           position: absolute;
@@ -974,7 +921,8 @@ footer .container {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
           grid-template-rows: repeat(5, 1fr);
-          position: relative;            
+          position: relative;    
+          margin-top: 2rem;        
       }
       #money {
           position: absolute;
@@ -1009,6 +957,9 @@ footer .container {
               margin-left: 3rem;
           }
        }
+       span {
+        line-height: 1.4em;
+       }
        .left {
           grid-area: left;
        }
@@ -1017,7 +968,7 @@ footer .container {
        }
        .btn-primary {
           width: 160px;
-          margin-top: 4rem;
+          margin-top: 2rem;
 
           span {
               margin-right: .2em;
@@ -1044,10 +995,19 @@ footer .container {
       h2 {
           font-size: 2.5rem;
       }
-      .btn-quotation {
-          width: 2.5rem;
-          aspect-ratio: 1;
-          box-shadow: 2px 5px 10px var(--color-grey500);
+      .text {
+        line-height: 1.4em;
+      }
+      .quotation {display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0.3em;
+        width: 2.5rem;
+        aspect-ratio: 1;
+        box-shadow: 2px 5px 10px var(--color-grey300);
+        background-color: var(--color-primary);
+        color: var(--color-btn-primary);
       }
       #quotation-1 {
           position: absolute;
@@ -1072,7 +1032,7 @@ footer .container {
           max-height:300px;
           padding: 1.5rem;
           border-radius: .5rem;
-          box-shadow: 2px 5px 10px var(--color-grey400);
+          box-shadow: 2px 5px 15px var(--color-grey300);
       }
       .stars {
           display: flex;

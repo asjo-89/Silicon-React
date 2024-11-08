@@ -6,6 +6,7 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({ fullName: '', email: '', specialist: '' });
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [dropDown, setDropDown] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -17,6 +18,22 @@ const ContactForm = () => {
         else {
             setErrors(prevErrors => ({...prevErrors, [name]: ''}))
         }
+    }
+
+    const handleDropDown = (e) => {
+        e.preventDefault();
+
+        if(dropDown) {
+            setDropDown(false);
+        }
+        else {
+            setDropDown(true);
+        }
+    }
+
+    const handleSelectSpecialist = (specialist) => {
+        setFormData({...formData, specialist});
+        setDropDown(false);
     }
 
     const handleSubmit = async (e) => {
@@ -53,7 +70,6 @@ const ContactForm = () => {
                 const error = await res.json();
                 console.log(error.errors)
                 setErrors(error.errors)
-                // console.log(error)
             }
         }
         catch(error) {
@@ -147,15 +163,35 @@ const ContactForm = () => {
 
             </div>
             <div className="input-group">
-                <label htmlFor="">Specialist</label>
+                <div className="dropdown-group">
+                    <label htmlFor="">Specialist</label>
+                    <div className="input-wrapper">
+                        <div className="input-container">
+                            <input value={formData.specialist} onChange={handleChange} name="specialist" className={`form-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" placeholder="Select a specialist" />
+                            <button onClick={handleDropDown} className="specialist-btn" htmlFor="specialist">
+                                <i className="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        {dropDown && (
+                            <ul>
+                                {specialist.map((item) => (
+                                    <li key={item.id} value={item.title} onClick={() => handleSelectSpecialist(item.title)}>{item.title}</li>
+                                ))}
+                            </ul>
+                        )}
+                        <span className="msg-error">{errors.specialist && errors.specialist || errors.Specialist && errors.Specialist}</span>
+                    </div>
+                </div>
+                {/* <label htmlFor="">Specialist</label>
                 <input value={formData.specialist} onChange={handleChange} name="specialist" className={`form-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" />
-                <span className="msg-error">{errors.specialist && errors.specialist || errors.Specialist && errors.Specialist}</span>
 
                 <datalist id="specialist">
+                    <option value="">Select a specialist</option>
                 {specialist.map((item) => (
-                    <option key={item.id}>{item.title}</option>
+                    <option key={item.id} value={item.title}>{item.title}</option>
                 ))}
                 </datalist>
+                <span className="msg-error">{errors.specialist && errors.specialist || errors.Specialist && errors.Specialist}</span> */}
             </div>
             <button className="btn btn-primary">Make an appointment</button>
         </form>

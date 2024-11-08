@@ -24,11 +24,11 @@ const MobileMenu = ({ isDark }) => {
 
   return (
     <>
-            <button className={`btn-mobile-menu ${isActive ? 'menu-active' : ''}`} aria-label="Menu" onClick={handleClick}>
-                <img id="menu-bars" src={!isDark ? MenuLight : MenuDark} />
-                {/* <i id="mob-menu-light" className={!isDark ? 'fa-solid fa-bars' : 'fa-solid fa-bars style={{color: "#ededed"}}'}></i>
-                <i loading="lazy" id="mob-menu-dark" className="fa-solid fa-bars" style={{color: "#ededed"}}></i>        */}
-            </button> 
+        <button className={`btn-mobile-menu ${isActive ? 'menu-active' : ''}`} aria-label="Menu" onClick={handleClick}>
+            <img id="menu-bars" src={!isDark ? MenuLight : MenuDark} />
+            {/* <i id="mob-menu-light" className={!isDark ? 'fa-solid fa-bars' : 'fa-solid fa-bars style={{color: "#ededed"}}'}></i>
+            <i loading="lazy" id="mob-menu-dark" className="fa-solid fa-bars" style={{color: "#ededed"}}></i>        */}
+        </button> 
         <div className="dropdown-container">
             {isOpen && (
                 <div className="dropdown-menu">
