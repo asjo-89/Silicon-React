@@ -9,16 +9,47 @@ const ContactForm = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
+
+    const validateInput = (name, value) => {
+        let error = '';
+
+        if(name === 'fullName' && !/^[A-Öa-ö\s\-]{2,}$/.test(value)) {
+            error = 'Must be at least 2 letters. No numbers allowed.';
+        }
+        else if(name === 'email' && !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)) {
+            error = 'Must be a valid email (eg. name@example.com).';
+        }
+
+        setErrors(prevErrors => ({...prevErrors, [name]: error}))
+    }
+    
+    const validateForm = () => {
+        
+        const newErrors = {};
+
+        if(!/^[A-Öa-ö\s\-]{2,}$/.test(formData.fullName)) {
+            newErrors.fullName = 'Must be at least 2 letters.';
+        }
+        
+        if(!/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(formData.email)) {
+            newErrors.email = 'Enter a valid email (eg. name@example.com).';
+        }
+
+        if(formData.specialist === '') {
+            newErrors.specialist = 'You have to choose a specialist from the list.'
+        }
+        
+        setErrors(newErrors);
+        setLoading(false);
+        return Object.keys(newErrors).length === 0;
+    }
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({...formData, [name]: value});
 
-        if(value.trim() === '') {
-            setErrors(prevErrors => ({...prevErrors, [name]: 'This field is required!'}))
-        }
-        else {
-            setErrors(prevErrors => ({...prevErrors, [name]: ''}))
-        }
+        validateInput(name, value);
     }
 
     const handleSelectSpecialist = (specialist) => {
@@ -30,46 +61,33 @@ const ContactForm = () => {
         e.preventDefault();
         setLoading(true);
 
-        const newErrors = {};
-
-        Object.keys(formData).forEach((input) => {
-            if(formData[input].trim() === '') {
-                newErrors[input] = 'This field is required!';
+        if(validateForm()) {
+            try {
+                const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });  
+                
+                if(res.ok) {
+                    setIsSubmitted(true);
+                    setFormData({ fullName: '', email: '', specialist: '' });
+                    setErrors({});
+                    console.log('The request was sent successfully.');
+                } else {
+                    const error = await res.json();
+                    console.log(error.errors)
+                    setErrors(error.errors)
+                }
             }
-        })
-
-        if(Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            setLoading(false);
-            return
-        }
-
-        
-        try {
-            const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });  
-            
-            if(res.ok) {
-                setIsSubmitted(true);
-                setFormData({ fullName: '', email: '', specialist: '' });
-                setErrors({});
-                console.log('The request was sent successfully.');
-            } else {
-                const error = await res.json();
-                console.log(error.errors)
-                setErrors(error.errors)
+            catch(error) {
+                console.log('There was an error!', error);
             }
-        }
-        catch(error) {
-            console.log('There was an error!', error);
-        }
-        finally {
-            setLoading(false);
+            finally {
+                setLoading(false);
+            }
         }
     }
 
@@ -169,7 +187,7 @@ const ContactForm = () => {
                 <div className="select-container">
                     <select value={formData.specialist} onChange={handleChange} name="specialist" id="select" className={`form-input select-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" required>
                         {specialist.map((item) => (
-                            <option className="option" key={item.id} value={item.title} onClick={() => handleSelectSpecialist(item.title)}>{item.title}</option>
+                            <option className="option" key={item.id} value={item.title} onChange={() => handleSelectSpecialist(item.title)}>{item.title}</option>
                         ))}
                     </select>
                 </div>
