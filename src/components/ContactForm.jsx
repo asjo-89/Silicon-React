@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
+
 const ContactForm = () => {
 
 
     const [formData, setFormData] = useState({ fullName: '', email: '', specialist: '' });
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [dropDown, setDropDown] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,17 +21,6 @@ const ContactForm = () => {
         }
     }
 
-    const handleDropDown = (e) => {
-        e.preventDefault();
-
-        if(dropDown) {
-            setDropDown(false);
-        }
-        else {
-            setDropDown(true);
-        }
-    }
-
     const handleSelectSpecialist = (specialist) => {
         setFormData({...formData, specialist});
         setDropDown(false);
@@ -38,6 +28,7 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         const newErrors = {};
 
@@ -49,6 +40,7 @@ const ContactForm = () => {
 
         if(Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setLoading(false);
             return
         }
 
@@ -65,6 +57,7 @@ const ContactForm = () => {
             if(res.ok) {
                 setIsSubmitted(true);
                 setFormData({ fullName: '', email: '', specialist: '' });
+                setErrors({});
                 console.log('The request was sent successfully.');
             } else {
                 const error = await res.json();
@@ -74,6 +67,9 @@ const ContactForm = () => {
         }
         catch(error) {
             console.log('There was an error!', error);
+        }
+        finally {
+            setLoading(false);
         }
     }
 
@@ -89,7 +85,7 @@ const ContactForm = () => {
 
     if(isSubmitted) {
         return (
-            <div className="box">
+            <div className="confirm-box">
                 <h3>Thank you for contacting us!</h3>
                 <p>We will get back to you within 2-3 days.</p>
             </div>
@@ -97,6 +93,10 @@ const ContactForm = () => {
     }
 
     const specialist = [
+        {
+            id: 0,
+            title: ''
+        },
         {
             id: 1,
             title: 'Cardiology'
@@ -148,52 +148,34 @@ const ContactForm = () => {
     ]
 
   return (
+    
     <div className="form-container">
         <h2>Get Online Consultation</h2>        
         <form className="form" onSubmit={handleSubmit} noValidate>
+            {loading && <div className="loading">Loading...</div>}
             <div className="input-group">
-                <label htmlFor="">Full name</label>
-                <input value={formData.fullName} onChange={handleChange} name="fullName" className={`form-input ${errors.fullName ? 'validate-error' : ''}`} type="text" placeholder="Enter full name" />
-                <span className="msg-error">{errors.fullName && errors.fullName || errors.FullName && errors.FullName}</span>
+                <label>Full name</label>
+                <input value={formData.fullName} onChange={handleChange} name="fullName" className={`form-input ${errors.fullName ? 'validate-error' : ''}`} type="text" placeholder="Enter full name" required />
+                <span className="msg-error">{errors.fullName && errors.fullName}</span>
             </div>
             <div className="input-group">
-                <label htmlFor="">Email address</label>
-                <input value={formData.email} onChange={handleChange} name="email" className={`form-input ${errors.email ? 'validate-error' : ''}`} type="email" placeholder="Enter email address" />
-                <span className="msg-error">{errors.email && errors.email || errors.Email && errors.Email}</span>
+                <label>Email address</label>
+                <input value={formData.email} onChange={handleChange} name="email" className={`form-input ${errors.email ? 'validate-error' : ''}`} type="email" placeholder="Enter email address" required />
+                <span className="msg-error">{errors.email && errors.email}</span>
 
             </div>
             <div className="input-group">
-                <div className="dropdown-group">
-                    <label htmlFor="">Specialist</label>
-                    <div className="input-wrapper">
-                        <div className="input-container">
-                            <input value={formData.specialist} onChange={handleChange} name="specialist" className={`form-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" placeholder="Select a specialist" />
-                            <button onClick={handleDropDown} className="specialist-btn" htmlFor="specialist">
-                                <i className="fa-solid fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        {dropDown && (
-                            <ul>
-                                {specialist.map((item) => (
-                                    <li key={item.id} value={item.title} onClick={() => handleSelectSpecialist(item.title)}>{item.title}</li>
-                                ))}
-                            </ul>
-                        )}
-                        <span className="msg-error">{errors.specialist && errors.specialist || errors.Specialist && errors.Specialist}</span>
-                    </div>
+                <label>Specialist</label>
+                <div className="select-container">
+                    <select value={formData.specialist} onChange={handleChange} name="specialist" id="select" className={`form-input select-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" required>
+                        {specialist.map((item) => (
+                            <option className="option" key={item.id} value={item.title} onClick={() => handleSelectSpecialist(item.title)}>{item.title}</option>
+                        ))}
+                    </select>
                 </div>
-                {/* <label htmlFor="">Specialist</label>
-                <input value={formData.specialist} onChange={handleChange} name="specialist" className={`form-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" />
-
-                <datalist id="specialist">
-                    <option value="">Select a specialist</option>
-                {specialist.map((item) => (
-                    <option key={item.id} value={item.title}>{item.title}</option>
-                ))}
-                </datalist>
-                <span className="msg-error">{errors.specialist && errors.specialist || errors.Specialist && errors.Specialist}</span> */}
+                <span className="msg-error">{errors.specialist && errors.specialist}</span>
             </div>
-            <button className="btn btn-primary">Make an appointment</button>
+            <button type="submit" className="btn btn-primary">{loading ? 'Submitting...' : 'Make an appointment'}</button>
         </form>
     </div>
   )
