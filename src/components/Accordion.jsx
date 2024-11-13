@@ -1,56 +1,68 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Accordion = () => {  
-    
+                                    
+    const [faqData, setFaqData] = useState([]);
+    const [errors, setErrors] = useState({});
     const [isActive, setIsActive] = useState(null);
     
+    useEffect(() => {
+        const getFaq = async () => {
+
+            try {
+                const response = await fetch('https://win24-assignment.azurewebsites.net/api/faq');
+        
+                if(!response.ok) {
+                throw new Error("Something went wrong with the request!");
+                }
+                
+                const apiData = await response.json();
+                setFaqData(apiData);
+            }
+            catch(error) {
+                console.log('There was an error!', error.message);
+            }
+        }
+
+        getFaq();
+    }, []);
+
     const handleClick = (index) => {
         setIsActive(isActive === index ? null : index);
     }
 
-    
-    const accordionData = [
-        {
-            title: '111111Is any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        },
-        {
-            title: '222222Is any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        },
-        {
-            title: '3333333s any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        },
-        {
-            title: '444444 any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        },
-        {
-            title: '555555s any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        },
-        {
-            title: '666666s any of my personal information stored in the App?',
-            content: 'Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper. Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra fermentum duis accumsan lectus non. Massa cursus molestie lorem scelerisque pellentesque. Nisi, enim, arcu purus gravida adipiscing euismod montes, duis egestas. Vehicula eu etiam quam tristique tincidunt suspendisse ut consequat.',
-        }
-
-    ]
+    if(errors) {
+        <div className="error-faq">
+            <p>Error while loading data from server.</p>
+        </div>
+    }
+        
     
 
   return (
       <>
-      {accordionData.map((item, index) => (
-        <div className="list-item" key={index}>
-            <input type="radio" name="radio" id={index} onClick={() => handleClick(index)} />
-            <div className="title">
-                <label htmlFor={index} className="question">{item.title}</label>
-                <label htmlFor={index} className={`btn btn-circle ${isActive === index ? 'btn-open' : ''}`}><i className="fa-solid fa-chevron-down"></i></label>
-            </div>
-            <div className={`content ${isActive === index ? 'content-open' : ''}`}>{item.content}</div>
-         </div>
-        ))}
-       
+            {faqData.map((item, index) => (
+                <div className="list-item" key={index}>
+                    <input 
+                        type="radio" 
+                        name="radio" 
+                        id={`faq-${index}`}
+                        onClick={() => handleClick(index)} 
+                    />
+                    <div className="title">
+                        <label htmlFor={`faq-${index}`} className="question">
+                            {item.title}
+                        </label>
+                        <label htmlFor={`faq-${index}`} className={`btn btn-circle ${isActive === index ? 'btn-open' : ''}`}>
+                            <i className="fa-solid fa-chevron-down"></i>
+                        </label>
+                    </div>
+
+                    {/* {isActive === index && ( */}
+                        <div className={`content ${isActive === index ? 'content-open' : ''}`}>{item.content}</div>
+                    {/* )} */}
+                </div>
+            ))}
     </>
   )
 }

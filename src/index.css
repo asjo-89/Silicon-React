@@ -491,6 +491,7 @@ a:hover {
         max-height: 500px;
         opacity: 1;
         transition: all .4s ease-in;
+        
       }
   }
 }   
