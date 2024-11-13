@@ -9,11 +9,13 @@ const Subscribe = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isValidated, setIsValidated] = useState(true);
 
+  
   const handleChange = (e) => {
     setIsValidated(true);
     const { name, value } = e.target;
     setFormData({...formData, [name]: value});
   }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +39,6 @@ const Subscribe = () => {
       const error = res.json();
       console.log(error);
     }
-
   }
 
 

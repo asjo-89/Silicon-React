@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import Hero from '../components/Hero'
 import Logos from '../components/Logos'
@@ -11,7 +11,7 @@ import Subscribe from '../components/Subscribe'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const Home = ({ toggleTheme, isDark}) => {
+const Home = () => {
 
 
   
@@ -19,9 +19,9 @@ const Home = ({ toggleTheme, isDark}) => {
     <>
       <div className="wrapper">
         <div className="container-nav">
-          <Header toggleTheme={toggleTheme} isDark={isDark} />
+          <Header />
         </div> 
-        <Hero isDark={isDark} />
+        <Hero />
       </div>
       <Logos />
       <Features />
@@ -32,7 +32,6 @@ const Home = ({ toggleTheme, isDark}) => {
       <Subscribe />
       <Footer />
     </>
-
   )
 }
 

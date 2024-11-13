@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
-const Accordion = () => {
-
-    // https://win24-assignment.azurewebsites.     /swagger/v1/swagger.json
-
-  
+const Accordion = () => {  
     
     const [isActive, setIsActive] = useState(null);
     

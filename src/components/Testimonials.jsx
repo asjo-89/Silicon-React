@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Fannie from '../images/fannie.svg'
 import Albert from '../images/albert.svg'
 

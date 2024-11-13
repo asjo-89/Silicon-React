@@ -50,7 +50,6 @@ const features = [
 
   return (
     <>
-
         {features.map((item, index) => (
             <div className="features" key={index} id={`f ${item.id}`}>
                 <span className="icon">
@@ -62,7 +61,6 @@ const features = [
                 </span>
             </div>
         ))}
-        
     </>
   )
 }

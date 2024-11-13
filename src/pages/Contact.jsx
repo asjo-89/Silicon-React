@@ -6,12 +6,13 @@ import BreadCrumb from '../components/BreadCrumb'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
-const Contact = ({ toggleTheme, isDark}) => {
+const Contact = () => {
+  
   return (
     <>
         <div className="contact-wrapper">
           <div className="contact-container">
-            <Header toggleTheme={toggleTheme} isDark={isDark} /> 
+            <Header /> 
             <BreadCrumb />
           </div>
         </div>

@@ -17,6 +17,7 @@
 --color-info: #4C82F7;
 --transition: .2s;
 
+}
 
 /* LIGHT COLORS */
 .light-theme {
@@ -37,7 +38,6 @@
     --color-bg-contact: #F3F6FF;
 }
 
-}
 .dark-theme {
 
   --color-grey900: rgba(255, 255, 255);

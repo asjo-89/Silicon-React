@@ -8,7 +8,6 @@ import ContactForm from './ContactForm'
 
 const HeroContact = () => {
 
-    https://win24-assignment.azurewebsites.net/api/forms/contact
 
   return (
     <div>

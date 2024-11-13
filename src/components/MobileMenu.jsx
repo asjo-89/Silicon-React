@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../contexts/ThemeContext'
 
 import MenuLight from '../images/menuLight.svg'
 import MenuDark from '../images/menuDark.svg'
 
-const MobileMenu = ({ isDark }) => {
+const MobileMenu = () => {
+    const {theme} = useTheme();
     const [isActive, setIsActive] = useState(false)
 
     const toggleActive = () => {
@@ -25,9 +27,7 @@ const MobileMenu = ({ isDark }) => {
   return (
     <>
         <button className={`btn-mobile-menu ${isActive ? 'menu-active' : ''}`} aria-label="Menu" onClick={handleClick}>
-            <img id="menu-bars" src={!isDark ? MenuLight : MenuDark} />
-            {/* <i id="mob-menu-light" className={!isDark ? 'fa-solid fa-bars' : 'fa-solid fa-bars style={{color: "#ededed"}}'}></i>
-            <i loading="lazy" id="mob-menu-dark" className="fa-solid fa-bars" style={{color: "#ededed"}}></i>        */}
+            <img id="menu-bars" src={theme ===  'light-theme' ? MenuLight : MenuDark} />
         </button> 
         <div className="dropdown-container">
             {isOpen && (
