@@ -7,39 +7,74 @@ const Subscribe = () => {
 
   const [formData, setFormData] = useState({ email: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isValidated, setIsValidated] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  
-  const handleChange = (e) => {
-    setIsValidated(true);
-    const { name, value } = e.target;
-    setFormData({...formData, [name]: value});
+
+
+  const validateInput = (name, value) => {
+    let error = '';
+    if(name === 'email' && !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)) {
+        error = 'Enter a valid email (eg. name@example.com).';
+    }
+
+    setErrors(prevErrors => ({...prevErrors, [name]: error}))
   }
 
+  const validateForm = () => {
+    
+    const newErrors = {};
+    
+    if(!/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(formData.email)) {
+        newErrors.email = 'Enter a valid email (eg. name@example.com).';
+    }
+    
+    setErrors(newErrors);
+    setLoading(false);
+    return Object.keys(newErrors).length === 0;
+  }
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({...formData, [name]: value});
+
+    validateInput(name, value);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+    if(validateForm()) {
+      try {
+        const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
 
-    if(res.ok) {
-      setIsSubmitted(true);
-      setFormData({ email: '' });
+        if(res.ok) {
+          setIsSubmitted(true);
+          setFormData({ email: '' });
+          setErrors({});
+          console.log('The request was sent successfully.');
+        }
+        else {
+          const error = await res.json();
+          console.log(error.errors)
+          setErrors(error.errors)
+        }
+        }
+        catch(error) {
+            console.log('There was an error!', error);
+        }
+        finally {
+            setLoading(false);
+        }
+      }
     }
-    else {
-      setIsValidated(false);
-      setFormData({ email: '' });
-      
-      const error = res.json();
-      console.log(error);
-    }
-  }
 
 
   useEffect(() => {
@@ -76,9 +111,9 @@ const Subscribe = () => {
               <h3 className="text-desktop">Subscribe to our newsletter to stay informed about latest updates</h3>
             </div>
             <form className="form" onSubmit={handleSubmit} noValidate>
-              <input value={formData.email} onChange={handleChange} type="email" name="email" className={`form-input ${isValidated ? '' : 'validate-error'}`} placeholder="Enter your email" />
-              {!isValidated && <label className="msg-error">Please enter a valid email address.</label>}
-              <button className="btn btn-primary" htmlFor="email">Subscribe</button>
+              <input value={formData.email} onChange={handleChange} name="email" className={`form-input ${errors.email ? 'validate-error' : ''}`} placeholder="Enter your email" />
+              <span className="msg-error">{errors.email && errors.email}</span>
+              <button className="btn btn-primary" htmlFor="email">{loading ? 'Submitting...' : 'Subscribe'}</button>
             </form>
           </div>
       </section>

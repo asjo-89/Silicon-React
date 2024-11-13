@@ -9,7 +9,6 @@ const ContactForm = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
-
     const validateInput = (name, value) => {
         let error = '';
 
@@ -17,7 +16,7 @@ const ContactForm = () => {
             error = 'Must be at least 2 letters. No numbers allowed.';
         }
         else if(name === 'email' && !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)) {
-            error = 'Must be a valid email (eg. name@example.com).';
+            error = 'Enter a valid email (eg. name@example.com).';
         }
 
         setErrors(prevErrors => ({...prevErrors, [name]: error}))
@@ -28,7 +27,7 @@ const ContactForm = () => {
         const newErrors = {};
 
         if(!/^[A-Öa-ö\s\-]{2,}$/.test(formData.fullName)) {
-            newErrors.fullName = 'Must be at least 2 letters.';
+            newErrors.fullName = 'Must be at least 2 letters. No numbers allowed.';
         }
         
         if(!/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(formData.email)) {
@@ -43,7 +42,6 @@ const ContactForm = () => {
         setLoading(false);
         return Object.keys(newErrors).length === 0;
     }
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
