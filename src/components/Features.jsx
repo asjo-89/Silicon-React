@@ -17,7 +17,8 @@ const Features = () => {
             <div className="content">
                 <div className="header">
                     <h2>App features</h2>
-                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices.</p>
+                    <p> Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
                 </div>
                 <FeaturesItems />
             </div>

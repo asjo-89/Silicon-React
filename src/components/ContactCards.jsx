@@ -4,6 +4,7 @@ import Phone from '../images/phone.svg'
 import Message from '../images/message.svg'
 import ArrowPurple from '../images/arrow-purple.svg'
 import ArrowGreen from '../images/arrow-green.svg'
+import { Link } from 'react-router-dom'
 
 const ContactCards = () => {
 
@@ -13,14 +14,16 @@ const ContactCards = () => {
             src1: Phone,
             title: 'Still have questions?',
             content: 'Contact us',
-            src2: ArrowPurple
+            src2: ArrowPurple,
+            label: 'call'
         },
         {
             id: 'green',
             src1: Message,
             title: 'Still have questions?',
             content: 'Contact us',
-            src2: ArrowGreen
+            src2: ArrowGreen,
+            label: 'message'
         }
     ]
 
@@ -30,10 +33,10 @@ const ContactCards = () => {
             <div id="contact-card" key={index}>
                 <img loading="lazy" src={item.src1} alt="A Telephone icon." />
                 <span className="small-text">{item.title}</span>
-                <a href="#" className="contact-link" id={item.id}>
+                <Link to="/" className="contact-link link" id={item.id} aria-label={`Link to ${item.label} us.`}>
                     <span>{item.content}</span>
-                    <img loading="lazy" src={item.src2} alt="A purple arrow." />
-                </a>
+                    <img loading="lazy" src={item.src2} alt="A purple arrow." aria-hidden="true" />
+                </Link>
             </div>
         ))}
     </>

@@ -166,7 +166,7 @@ const ContactForm = () => {
   return (
     
     <div className="form-container">
-        <h2>Get Online Consultation</h2>        
+        <h3>Get Online Consultation</h3>        
         <form className="form" onSubmit={handleSubmit} noValidate>
             {loading && <div className="loading">Loading...</div>}
             <div className="input-group">
@@ -181,7 +181,7 @@ const ContactForm = () => {
 
             </div>
             <div className="input-group">
-                <label>Specialist</label>
+                <label htmlFor="select">Specialist</label>
                 <div className="select-container">
                     <select value={formData.specialist} onChange={handleChange} name="specialist" id="select" className={`form-input select-input ${errors.specialist ? 'validate-error' : ''}`} list="specialist" required>
                         {specialist.map((item) => (

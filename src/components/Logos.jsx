@@ -36,17 +36,17 @@ const Logos = () => {
         }
     ]
 
-  return (
-    <section id="logo-row">
-        <div className="container">
-            {logos.map((logo, index) => (
-                <div className="logo" id={`logo${logo.id}`}key={index}>
-                    <img loading="lazy" src={logo.src} alt="Logoipsum 1" />
-                </div>
-            ))}
-        </div>
-    </section>
-  )
+    return (
+        <section id="logo-row">
+            <div className="container">
+                {logos.map((logo, index) => (
+                    <div className="logo" id={`logo${logo.id}`} key={index}>
+                        <img id={`logo-img${logo.id}`} loading="lazy" src={logo.src} alt="Company logo." />
+                    </div>
+                ))}
+            </div>
+        </section>
+    )
 }
 
 export default Logos

@@ -7,18 +7,18 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const Contact = () => {
-  
+
   return (
     <>
-        <div className="contact-wrapper">
-          <div className="contact-container">
-            <Header /> 
-            <BreadCrumb />
-          </div>
+      <div className="contact-wrapper">
+        <div className="contact-container">
+          <Header />
+          <BreadCrumb />
         </div>
-        <HeroContact />
-        <Location />
-        <Footer />
+      </div>
+      <HeroContact />
+      <Location />
+      <Footer />
     </>
   )
 }

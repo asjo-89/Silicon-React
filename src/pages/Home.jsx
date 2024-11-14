@@ -14,13 +14,13 @@ import Footer from '../components/Footer'
 const Home = () => {
 
 
-  
+
   return (
     <>
       <div className="wrapper">
         <div className="container-nav">
           <Header />
-        </div> 
+        </div>
         <Hero />
       </div>
       <Logos />
