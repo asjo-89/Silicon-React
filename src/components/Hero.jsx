@@ -24,12 +24,12 @@ const Hero = () => {
 
                         <DownloadButtons />
 
-                        <Link to="/" className="discover-more link" aria-label="Link to discover more.">
+                        <a href="#app-features" className="discover-more link" aria-label="Link to discover more.">
                             <span className="btn btn-circle">
                                 <i className="fa-solid fa-chevron-down" aria-hidden="true" ></i>
                             </span>
                             <p className="p">Discover more</p>
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="images">

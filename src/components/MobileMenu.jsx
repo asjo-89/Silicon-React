@@ -33,7 +33,7 @@ const MobileMenu = () => {
                 {isOpen && (
                     <div className="dropdown-menu">
                         <Link className="link" to="/" onClick={closeDropDown}><p>Home</p></Link>
-                        <Link className="link" to="/" onClick={closeDropDown}><p>Features</p></Link>
+                        <a className="link" href="/#app-features" onClick={closeDropDown}><p>Features</p></a>
                         <Link className="link" to="/contact" onClick={closeDropDown}><p>Contact</p></Link>
                     </div>
                 )}

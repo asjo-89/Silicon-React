@@ -3,7 +3,7 @@ import { useTheme } from '../contexts/ThemeContext'
 
 import SiliconLogo from '../images/silicon.svg'
 import SiliconLogoDark from '../images/silicon-dark.svg'
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 
 const Header = () => {
@@ -17,8 +17,8 @@ const Header = () => {
                 <img id="logo" src={theme === 'light-theme' ? SiliconLogo : SiliconLogoDark} alt="Silicon logo" />
             </Link>
             <nav className="navbar">
-                <NavLink to="/" className="nav-link link" aria-label="Link that takes you to the Features page.">Features</NavLink>
-                <NavLink to="/contact" className="nav-link link" area-label="Link that takes you to the Contact page.">Contact</NavLink>
+                <a href="./#app-features" className="nav-link link" aria-label="Link that takes you to the Features page.">Features</a>
+                <Link to="/contact" className="nav-link link" area-label="Link that takes you to the Contact page.">Contact</Link>
             </nav>
             <div className="toggle-group">
                 <label className="label">Dark Mode</label>

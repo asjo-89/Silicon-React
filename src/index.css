@@ -302,8 +302,7 @@ p {
             display: flex;
             align-items: center;
             justify-content: center;
-            place-self: center;
-            margin-top: 2rem;
+            margin: 2rem auto;
             gap: 1rem;
             color: var(--color-grey900);
         }
@@ -828,6 +827,8 @@ footer .container {
         .discover-more {
             margin-top: 12rem;
             margin-bottom: 5rem;
+            margin-left: 0;
+            margin-right: 0;
         }
         .iphone-back {
             right: 250px;

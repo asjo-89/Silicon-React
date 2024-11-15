@@ -73,9 +73,10 @@ const Location = () => {
 
                     </div>
                     <div className="map">
-                        <img loading="lazy" src={MapWithStamps} alt="A map with location marks." />
+                            <iframe id="map-canvas" className="map-part"  src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=4517 Washington Ave. Manchester, Kentucky 39495&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                            Powered by 
+                            <a href="https://www.googlemapsgenerator.com/">google maps embed</a></iframe>
                     </div>
-
                 </div>
             </div>
         </section>
